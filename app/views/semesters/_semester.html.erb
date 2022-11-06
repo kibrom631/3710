@@ -1,0 +1,13 @@
+<hr>
+<div id="<%= dom_id semester %>">
+  <p>
+    <strong>Semester:</strong>
+    <%= semester.semester.present? ? semester.semester : 'Semester not set' %>
+  </p>
+
+  <p>
+    <strong>Year:</strong>
+    <%= semester.year || 'Year not set' %>
+  </p>
+
+</div>

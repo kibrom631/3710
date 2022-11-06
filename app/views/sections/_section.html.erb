@@ -1,0 +1,42 @@
+<hr>
+<div id="<%= dom_id section %>">
+  <p>
+    <strong>Crn:</strong>
+    <%= section.CRN %>
+  </p>
+
+  <p>
+    <strong>Course:</strong>
+    <% if section.course %>
+      <%= link_to "#{section.course.prefix.prefix} #{section.course.number} #{section.course.name}", section.course %>
+    <% else %>
+      Course not set
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Semester:</strong>
+    <% if section.semester %>
+      <%= link_to "#{section.semester.semester} #{section.semester.year}", section.semester %>
+    <% else %>
+      Semester not set
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Students:</strong>
+    <% if section.students.any? %>
+    <ul>
+      <% section.students.each do |student| %>
+        <li>
+          <%= link_to student&.email, student %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    No students
+  <% end %>
+
+  </p>
+
+</div>

@@ -1,0 +1,48 @@
+<hr>
+
+<div id="<%= dom_id student %>">
+  <p>
+    <strong>First name:</strong>
+    <%= student.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= student.last_name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= student.email %>
+  </p>
+
+  <p>
+    <strong>Physical address:</strong>
+    <%= student.physical_address %>
+  </p>
+
+  <p>
+    <strong>Phone number:</strong>
+    <%= student.phone_number %>
+  </p>
+
+  <p>
+    <strong>Student:</strong>
+    <%= student.student_id %>
+  </p>
+
+  <p>
+    <strong>Section CRNs:</strong>
+    <% if student.sections.any? %>
+    <ul>
+      <% student.sections.each do |section| %>
+        <li>
+          <%= link_to section.CRN, section %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    Empty
+  <% end %>
+  </p>
+</div>

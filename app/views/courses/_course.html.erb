@@ -1,0 +1,18 @@
+<hr>
+<div id="<%= dom_id course %>">
+  <p>
+    <strong>Prefix:</strong>
+    <%= course.prefix&.prefix || 'Prefix not set' %>
+  </p>
+
+  <p>
+    <strong>Number:</strong>
+    <%= course.number || 'Number not set' %>
+  </p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= course.name.present? ? course.name : 'Name not set' %>
+  </p>
+
+</div>

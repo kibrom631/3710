@@ -1,0 +1,41 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Students</h1>
+<h3>Search students by:</h3>
+<%= search_form_for @q do |f| %>
+  <div style="display: flex; flex-wrap: wrap">
+    <div style="width: 50%">
+      <%= f.label :first_name_cont %>
+      <%= f.search_field :first_name_cont %>
+    </div>
+
+    <div style="width: 50%">
+      <%= f.label :last_name_cont %>
+      <%= f.search_field :last_name_cont %>
+    </div>
+
+    <div style="width: 50%">
+      <%= f.label :email_cont %>
+      <%= f.search_field :email_cont %>
+    </div>
+
+    <div style="width: 50%">
+      <%= f.label :student_id_eq %>
+      <%= f.search_field :student_id_eq %>
+    </div>
+  </div>
+
+  <%= f.submit "Search" %> <br>
+  <%= link_to "Clear Search", request.path, class: "cancel-button" %>
+  <hr>
+<% end %>
+<%= button_to "New student", new_student_path, method: :get %>
+<div id="students">
+  <% @students.each do |student| %>
+    <%= render student %>
+    <p>
+      <%= link_to "Show this student", student %>
+    </p>
+  <% end %>
+</div>
+
